@@ -1,6 +1,6 @@
 /**
- * Clase que Contiene las funciones Generales 
- * Utilizadas por el sistema
+ * Clase que Contiene todos metodos Estaticos para
+ * poder ser utilizadaos por el sistema
  */
 package funciones;
 
@@ -57,6 +57,42 @@ public class FuncionApp {
         return (comparacion[0] == 4);
     }
 
+     /**
+     * Metodo para Validar el Numero Ingresado por el usuario
+     * @param ingresado recibe el String ingresado por el usuario
+     * 
+     * @return Devuelve True cuando el numero es VALIDO.
+     */
+    public static boolean validaNumero(String ingresado){
+        if (ingresado.isEmpty()) {
+                System.out.println("Deben Ingresar un Numero");
+                return false;
+            }else if (ingresado.charAt(0) == '0') {
+                System.out.println("El numero no debe empezar con 0");
+                return false;
+            }else if (ingresado.length() < 4){
+            System.out.println("El Numero Ingresado es menor a 4 cifras"); 
+            return false;
+            }else if (ingresado.length() > 4) {
+                System.out.println("El Numero Ingresado es mayor a 4 cifras"); 
+                return false;
+            }else{
+                   for (int i = 0; i < ingresado.length(); i++) {
+                       for (int j = 0; j < ingresado.length(); j++) {
+                           if (i !=j) {
+                                if (ingresado.charAt(i) == ingresado.charAt(j)) {
+                                    System.out.println("Las 4 Cifras deben ser distintas");
+                                    return false;
+                                }
+                           }
+                       }
+            }
+ 
+            
+            }
+        return true;
+    }
+    
 
 }
 

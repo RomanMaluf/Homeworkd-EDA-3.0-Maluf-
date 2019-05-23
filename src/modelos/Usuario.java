@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Clase Usuario
+ * Aqui ingresa el Programa cuando el Usuario elige Jugar contra la Maquina
  */
 package modelos;
 
@@ -40,12 +39,12 @@ public class Usuario {
         boolean flag = false;
         do {
             this.ingresado = scn.nextLine();
-            if (!validaNumero()) {
+            if (!FuncionApp.validaNumero(this.ingresado)) {
                   System.out.println("Prueba de Nuevo");
             }else{
                 
                 this.intentos++;
-                flag = FuncionApp.compareNum(ingresado, pensado, comparacion);
+                flag = FuncionApp.compareNum(ingresado, pensado, comparacion); //Comparo los numeros
                 this.bien=comparacion[0]; this.regular = comparacion[1];
                 if (flag) {
                     System.out.println("Felicitaciones Lo has Logrado!..... Numero de Intentos : "+intentos);
@@ -53,42 +52,14 @@ public class Usuario {
                     scn.nextLine();
                 }else{
                     System.out.println("Sigue Intentando... Bien : "+bien+" Regular : "+regular);
-                    comparacion[0]=0;comparacion[1]=0;
+                    comparacion[0]=0;comparacion[1]=0; //Vuelvo las Comparaciones a 0 para poder comparar de nuevo
                 }
             }
         } while (!flag);   
     }
     
-    public boolean validaNumero(){
-        if (ingresado.isEmpty()) {
-                System.out.println("Deben Ingresar un Numero");
-                return false;
-            }else if (ingresado.charAt(0) == '0') {
-                System.out.println("El numero no debe empezar con 0");
-                return false;
-            }else if (ingresado.length() < 4){
-            System.out.println("El Numero Ingresado es menor a 4 cifras"); 
-            return false;
-            }else if (ingresado.length() > 4) {
-                System.out.println("El Numero Ingresado es mayor a 4 cifras"); 
-                return false;
-            }else{
-                   for (int i = 0; i < ingresado.length(); i++) {
-                       for (int j = 0; j < ingresado.length(); j++) {
-                           if (i !=j) {
-                                if (ingresado.charAt(i) == ingresado.charAt(j)) {
-                                    System.out.println("Las 4 Cifras deben ser distintas");
-                                    return false;
-                                }
-                           }
-                       }
-            }
- 
-            
-            }
-        return true;
-    }
-    
+
+   
     //Getters And Setters
     public String getPensado() {
         return pensado;
