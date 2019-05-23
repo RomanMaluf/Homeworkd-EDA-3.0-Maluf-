@@ -8,6 +8,7 @@
 package main;
 
 import java.util.Scanner;
+import modelos.Ordenador;
 import modelos.Usuario;
 
 
@@ -48,6 +49,8 @@ public class AdivinaCuatro {
          
             case 2:
                //Voy al Modelo Ordenador
+                Ordenador computer = new Ordenador();
+                computer.adivinaOrdenador();
                 break;
             
             case 3:
