@@ -93,6 +93,11 @@ public class FuncionApp {
         return true;
     }
 
+    /**
+     * Funcion para validar que un numero tenga las 4 cifras distintas
+     * @param ingresado recibe el numero a validar
+     * @return devuelve true si el numero tiene 4 cifras distintas
+     */
     public static boolean validaNumeroOrdenador(String ingresado) {
                     for (int i = 0; i < ingresado.length(); i++) {
                 for (int j = 0; j < ingresado.length(); j++) {
