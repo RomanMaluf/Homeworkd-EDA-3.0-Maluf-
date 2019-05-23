@@ -27,7 +27,7 @@ public class AdivinaCuatro {
        menu(); //Ejecuto el Menu del juego
  
     }
-     public static int menu(){
+     public static int menu() {
     
         int opcion = 0;   
         Scanner scn = new Scanner(System.in);
