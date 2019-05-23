@@ -8,6 +8,7 @@
 package main;
 
 import java.util.Scanner;
+import modelos.Usuario;
 
 
 
@@ -41,7 +42,8 @@ public class AdivinaCuatro {
         
         switch(opcion){
             case 1:
-                //Voy al Modelo Usuario
+                Usuario user = new Usuario();
+                user.adivinaUsuario();
                 break;
          
             case 2:
