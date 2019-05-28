@@ -28,14 +28,14 @@ public class Ordenador {
     }
 
     //METODOS Y FUNCIONES
-    
     /**
-     * Metodo para que el ordenador Adivine el numero que el usuario esta Pensando
-     * Si el Usuario se equivoca con alguna Validacion de numero Bien o Regular
-     * Entra en un bucle infinito
+     * Metodo para que el ordenador Adivine el numero que el usuario esta
+     * Pensando Si el Usuario se equivoca con alguna Validacion de numero Bien o
+     * Regular Entra en un bucle infinito
      */
     public void adivinaOrdenador() {
-        this.intentos = 0; 
+        System.out.println("Recuerde que El numero pensado debe ser de 4 Cifras DISTINTAS");
+        this.intentos = 0;
         Scanner scn = new Scanner(System.in);
         this.pensado[intentos] = FuncionApp.GeneraNum(4);  //Primero Numero a Probar
         int original = Integer.parseInt(this.pensado[intentos]);
@@ -43,20 +43,31 @@ public class Ordenador {
         boolean flag = false;  //Bandera Para Compara con numeros anteriores
         boolean primera = true; //Boolean por si es la primera Vez
         do { //Entra siempre Al menos 1 ves
-            
+
             /**
-             * Entra si es La primera Ves
-             * Si no es la primera Ves, Tiene que cumpler con todos los numeros anteriores
+             * Entra si es La primera Ves Si no es la primera Ves, Tiene que
+             * cumpler con todos los numeros anteriores
              */
-            if (primera || ( (!primera) && (flag) )) {
+            if (primera || ((!primera) && (flag))) {
                 if (intentos > 0) {
                     this.pensado[intentos] = actual;
                 }
-                System.out.println("Ordenador Pregunta por " + pensado[intentos] + " ?");
-                System.out.println("Bien : ");
-                this.bien[intentos] = scn.nextInt();
-                System.out.println("Regulares: ");
-                this.regular[intentos] = scn.nextInt();
+                while (true) {
+                    int opcion;
+                    System.out.println("Ordenador Pregunta por " + pensado[intentos] + " ?");
+                    System.out.println("Bien : ");
+                    this.bien[intentos] = scn.nextInt();
+                    System.out.println("Regulares: ");
+                    this.regular[intentos] = scn.nextInt();
+                    System.out.println("Esta seguro que ?...");
+                    System.out.println("Bien : " + this.bien[intentos] + " Regulares : " + this.regular[intentos]);
+                    System.out.println("1)_Si                           2)_No");
+                    opcion = scn.nextInt();
+                    if (opcion == 1) {
+                        break;
+                    }
+                }
+
                 primera = false;
                 flag = false;
                 if (this.bien[intentos] == 4) { //Si los 4 numeros estan bien... Es correcto sale del metodo
@@ -105,12 +116,13 @@ public class Ordenador {
         } while (true);
 
     }
-    
+
     /**
-     * Funcion para comparar el numero Actual
-     * con todos los numeros Anteriores
+     * Funcion para comparar el numero Actual con todos los numeros Anteriores
+     *
      * @param actual recibe el numero Actual
-     * @return Devuelve true Siempre que cumpla con todas las condiciones anteriores
+     * @return Devuelve true Siempre que cumpla con todas las condiciones
+     * anteriores
      */
     public boolean comparaAnteriores(String actual) {
         boolean result = true;

@@ -36,7 +36,7 @@ public class AdivinaCuatro {
         System.out.println
         ("Bienvenido Al Juego ***Adivina Cuatro Cifras***" +
         "\n 1- Adivine un número generado por el ordenador"+
-        "\n 2- Ingrese un número para que el ordenador adivine"+
+        "\n 2- Piense un número para que el ordenador adivine"+
         "\n 3- Salir");
         
         opcion = scn.nextInt();
